@@ -123,7 +123,6 @@ def login():
 @app.route('/logout')
 def logout():
     session.clear()
-    flash("You have been logged out.")
     return redirect(url_for('login'))
 
 # --- ADMIN ROUTES ---
@@ -272,7 +271,7 @@ def handle_leave(index, action):
                 flash("Leave Request Rejected.", "warning")
 
         return redirect(url_for('admin_dashboard'))
-        # Pagkatapos ng action, balik sa dashboard
+        # Pagkahuman sa action, balik sa dashboard
     
 # --- EMPLOYEE ROUTES ---
 

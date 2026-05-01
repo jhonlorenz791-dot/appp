@@ -17,6 +17,10 @@
             width: 260px;
             position: fixed;
             top: 0;
+            left: 0;
+            background: #06a4b8; /* Green color for Employee */
+            color: white;
+            padding-top: 20px;
             z-index: 1000;
         }
 
@@ -35,9 +39,9 @@
         }
 
         .sidebar a.active {
-            background: #146c43;
+            background: #000000;
             color: white;
-            border-left: 5px solid #ffc107;
+            border-left: 5px solid #c7c5c2;
         }
 
         /* Content Area */
@@ -62,7 +66,7 @@
 <body>
 
 <div class="sidebar">
-    <h4 class="text-center">Employee Panel</h4>
+    <h4 class="text-center">Employee Dashboard</h4>
     <p class="text-center small opacity-75">Welcome, {{ employee.get_name() }}</p>
     <hr class="mx-3">
 
@@ -144,7 +148,7 @@
                         </div>
                         {% endif %}
                     </div>
-                </div>
+                </div>  
             </div>
         </div>
     </div>
@@ -162,9 +166,9 @@
                                 <th>Type</th>
                                 <th>Leave Date</th>
                                 <th>Status</th>
-                                <th class="text-center">Action</th>
+                                <th class="text-center">Cancel Leave</th>
                             </tr>
-                        </thead>
+                        </thead>  
                         <tbody>
                             {% for i, req in history|reverse %}
                             <tr>
@@ -192,7 +196,7 @@
                                 <td class="text-center">
                                     {% if req['status'] == "Approved" %}
                                         <form method="POST" action="{{ url_for('cancel_leave', index=i) }}" class="d-flex gap-1">
-                                            <input type="text" name="cancel_reason" placeholder="Why cancel?" required class="form-control form-control-sm">
+                                            <input type="text" name="cancel_reason" placeholder="Please input a reason for cancellation" required class="form-control form-control-sm">
                                             <button class="btn btn-outline-warning btn-sm">Cancel</button>
                                         </form>
                                     {% else %}
