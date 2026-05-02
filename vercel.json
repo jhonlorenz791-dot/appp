@@ -1,23 +1,5 @@
 {
-    "version": 2,
-    "builds": [
-        {
-        "src": "app.py",
-        "use": "@vercel/python",
-        "config": {
-            "maxduration": 10
-        }
-      }
-    ],
-    "routes": [
-        {
-        "src": "/(.*)",
-        "dest": "app.py"
-        }
-    ],
-    "env": {
-        "FLASK_ENV": "production",
-        "FLASK_DEBUG": "0",
-        "SECRET_KEY": "Secret123"
-    }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "api/index" }
+  ]
 }
